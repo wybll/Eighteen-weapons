@@ -1,0 +1,45 @@
+# 刚来，告诉git你是谁
+git config --global user.name "backen"
+git config --global user.email  "xxxxxxxxxx@xx.com"
+
+# 初始化仓库
+git init
+
+# 添加、看状态、提交、回滚
+git add * 
+git status
+git commit -m 'create theark!'
+git reset --soft "HEAD^"
+
+# 回滚到 添加 之前【代码还在】
+git reset --mixed "HEAD^"
+# 回滚到上一个版本【注意：当前版本的代码会 直接没】
+git reset --hard "HEAD^"
+# 版本回退到指定版本
+git reset --hard "版本号"
+
+# 远程推送
+git remote rm origin
+git remote add origin git@github.com:xxx/xxxx.git
+git push origin main
+
+# 删除本地git管理
+find . -name ".git" | xargs rm -Rf
+
+# 合并分支
+git checkout -b main
+# Switched to a new branch 'main'
+
+# 查看分支
+git branch
+# * main
+#  master
+
+# 将master分支合并到main上，并推送至远程
+git merge master 
+# Already up to date.
+git push origin main
+
+# 删除master分支
+git branch -d master
+
